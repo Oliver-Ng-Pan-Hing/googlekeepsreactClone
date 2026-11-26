@@ -3,9 +3,11 @@ import "./Sidebar.css"
 
 const Sidebar = (props) => {
 
+  const { darkMode } = props
+
     return (
         
-        <div className="sidebar">
+        <div className={darkMode ? "sidebar sidebar-dark-mode dark-mode" : "sidebar"}>
         <div className="sidebar-item active-item">
           <span className="material-symbols-outlined hover active">
             lightbulb
@@ -29,7 +31,6 @@ const Sidebar = (props) => {
           <span className="sidebar-text">Trash</span>
         </div>
       </div>
-
 
     )
 

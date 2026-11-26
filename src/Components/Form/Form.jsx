@@ -4,7 +4,7 @@ import "./Form.css";
 
 const Form = (props) => {
 
-  const { edit, selectedNote, toggleModal, editNote} = props
+  const { edit, selectedNote, toggleModal, editNote, darkMode} = props
   // console.log(props)
   const [title, setTitle] = useState((edit && selectedNote.title) || "");
   const [text, setText] = useState((edit && selectedNote.text) || "");
@@ -48,7 +48,7 @@ const Form = (props) => {
 
   return (
     <>
-      <div className="form-container active-form" onClick={clickHandler}>
+      <div className={darkMode ? "form-container active-form form-dark-mode" : "form-container active-form"} onClick={clickHandler}>
         <form onSubmit={submitForm} className={isActiveForm ? "form" : ""} id="form" >
           {isActiveForm && (
             <input
@@ -71,7 +71,7 @@ const Form = (props) => {
           />
 
           {isActiveForm ? (
-            <div className="form-actions">
+            <div className={darkMode ? "form-actions form-actions-dark-mode" : "form-actions"}>
               <div className="icons">
                 <div className="tooltip">
                   <span className="material-symbols-outlined hover small-icon">
@@ -149,61 +149,3 @@ const Form = (props) => {
 };
 
 export default Form;
-
-{
-  /* <div className="form-container inactive-form" onClick={clickHandler}>
-          <form>
-            <input
-              type="text"
-              className="note-text"
-              placeholder="Take a note..."
-            />
-            <div className="form-actions">
-              <div className="tooltip">
-                <span className="material-symbols-outlined hover">
-                  check_box
-                </span>
-                <span className="tooltip-text">New List</span>
-              </div>
-              <div className="tooltip">
-                <span className="material-symbols-outlined hover">brush</span>
-                <span className="tooltip-text">New Drawing</span>
-              </div>
-              <div className="tooltip">
-                <span className="material-symbols-outlined hover">image</span>
-                <span className="tooltip-text">New Image</span>
-              </div>
-            </div>
-          </form>
-        </div> */
-}
-
-// const [userInput, setUserInput] = useState({
-//   title: "",
-//   text: ""
-// })
-
-// title input
-// const titleChangeHandler = (event) => setUserInput((prevState) => {
-//   return {
-//     ...prevState,
-//     title: event.target.value
-//   }
-// })
-
-// const submitForm = (event) => {
-//   event.preventDefault()
-//     setUserInput({
-
-//         title: "",
-//         text: ""
-// })
-// }
-
-// // text input
-//     const textChangeHandler = (event) => setUserInput((prevState) => {
-//       return {
-//         ...prevState,
-//         text: event.target.value
-//       }
-//     })

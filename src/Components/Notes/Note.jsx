@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import "./Note.css"
 
 const Note = (props) => {
-  const { toggleModal, note, deleteNote, setSelectedNote} = props
+  const { toggleModal, note, deleteNote, setSelectedNote, darkMode } = props
   // const [tick, setTick] = useState(false)
   const [isHover, setIsHover] = useState(false);
 
@@ -23,7 +24,7 @@ const Note = (props) => {
   return (
     <>
       <div
-        className="note"
+        className={darkMode ? "note note-dark-mode" : "note"}
         onMouseOver={mouseOverHandler}
         onMouseOut={mouseOutHandler}
         id={note.id}

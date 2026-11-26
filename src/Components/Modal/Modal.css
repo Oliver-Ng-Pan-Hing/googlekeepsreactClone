@@ -9,6 +9,14 @@
   z-index: 2;
 }
 
+/* dark- MODE */
+
+/* .modal-dark-mode .modal-content{
+  background-color: black;
+} */
+
+/* dark-MODE */
+
 .modal .modal-content {
   width: 589px;
   position: relative;

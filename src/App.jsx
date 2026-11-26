@@ -4,6 +4,7 @@ import Sidebar from "./Components/Sidebar/Sidebar.jsx";
 import Form from "./Components/Form/Form.jsx";
 import Notes from "./Components/Notes/Notes.jsx";
 import Modal from "./Components/Modal/Modal.jsx";
+import "./AppStyles.css"
 
 const NOTES = [];
 
@@ -11,6 +12,8 @@ const App = () => {
   const [notes, setNotes] = useState(NOTES);
   const [selectedNote, setSelectedNote] = useState({})
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false)
+  
 
   const addNote = (note) => {
     setNotes((prevNotes) => {
@@ -46,21 +49,23 @@ const App = () => {
   };
 
   return (
-    <>
-      <Navbar />
-      <Sidebar />
-      <Form addNote={addNote} />
+    <div className={darkMode ? "app-dark-mode" : ""}>
+      
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
+      <Sidebar darkMode={darkMode}/>
+      <Form darkMode={darkMode} addNote={addNote} />
       <Notes
+        darkMode={darkMode}
         notes={notes}
         deleteNote={deleteNote}
         toggleModal={toggleModal}
         setSelectedNote={setSelectedNote}
       />
       {
-        isModalOpen && <Modal isModalOpen={isModalOpen} selectedNote={selectedNote} toggleModal={toggleModal} editNote={editNote}/>
+        isModalOpen && <Modal isModalOpen={isModalOpen} selectedNote={selectedNote} toggleModal={toggleModal} editNote={editNote} darkMode={darkMode}/>
       }
       
-    </>
+    </div>
   );
 };
 

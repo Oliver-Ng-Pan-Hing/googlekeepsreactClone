@@ -5,6 +5,15 @@
   padding: 0 100px;
 }
 
+/* dark-MODE */
+
+.notes-dark-mode p{
+  color: white;
+}
+
+
+/* dark-MODE */
+
 .note {
   background-color: white;
   margin: 10px;

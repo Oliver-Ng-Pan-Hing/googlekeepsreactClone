@@ -1,9 +1,16 @@
 import "./Navbar.css"
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+    const { setDarkMode, darkMode } = props
+
+    const toggleDarkModeHandler = () => {
+      setDarkMode(!darkMode)
+    }
 
     return (
-    <nav>
+    <nav className={darkMode ? "dark-mode" : ""}>
+      {/* 1st nav part */}
       <div className="logo-area">
         <div className="tooltip">
           <span className="material-symbols-outlined hover">menu</span>
@@ -19,13 +26,26 @@ const Navbar = () => {
           />
         <span className="logo-text">Keep</span>
       </div>
-      <div className="search-area">
-        <div className="tooltip">
-          <span className="material-symbols-outlined hover">search</span>
-          <span className="tooltip-text">Search</span>
+
+    {/* 2nd nav part */}
+      <div className="search-area-container">
+
+        <div className="search-area">
+          <div className="tooltip">
+            <span className="material-symbols-outlined search-icon hover">search</span>
+            <span className="tooltip-text">Search</span>
+          </div>
+          <input type="text" placeholder="Search" />
         </div>
-        <input type="text" placeholder="Search" />
+
+        <div className="tooltip" onClick={toggleDarkModeHandler}>
+            <span class="material-symbols-outlined hover">toggle_on</span>
+            <span className="tooltip-text">Toggle Mode</span>
+        </div>
+
       </div>
+
+      {/* 3rd nav part */}
       <div className="settings-area">
         <div className="tooltip">
           <span className="material-symbols-outlined hover">refresh</span>
@@ -40,6 +60,8 @@ const Navbar = () => {
           <span className="tooltip-text">Settings</span>
         </div>
       </div>
+
+      {/* 4th nav part */}
       <div className="profile-actions-area">
         <div className="tooltip">
           <span className="material-symbols-outlined hover">apps</span>

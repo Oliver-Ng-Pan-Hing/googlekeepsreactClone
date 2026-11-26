@@ -1,0 +1,16 @@
+.note-dark-mode{
+    background-color: #11141a;
+}
+
+.note-dark-mode .note-footer .material-symbols-outlined, .note-dark-mode .check-circle  {
+  color: white;
+}
+
+.note-dark-mode .title, .note-dark-mode .text{
+    color: white;
+}
+
+.note-dark-mode .hover:hover{
+background-color: #2a2c2e;
+}
+
